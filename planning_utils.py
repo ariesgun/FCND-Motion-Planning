@@ -1,7 +1,7 @@
 from enum import Enum
 from queue import PriorityQueue
 import numpy as np
-
+import math
 
 def create_grid(data, drone_altitude, safety_distance):
     """
@@ -55,6 +55,10 @@ class Action(Enum):
     EAST = (0, 1, 1)
     NORTH = (-1, 0, 1)
     SOUTH = (1, 0, 1)
+    NORTH_EAST = (-1, 1, math.sqrt(2))
+    NORTH_WEST = (-1, -1, math.sqrt(2))
+    SOUTH_EAST = (1, 1, math.sqrt(2))
+    SOUTH_WEST = (1, -1, math.sqrt(2))
 
     @property
     def cost(self):
@@ -75,7 +79,6 @@ def valid_actions(grid, current_node):
 
     # check if the node is off the grid or
     # it's an obstacle
-
     if x - 1 < 0 or grid[x - 1, y] == 1:
         valid_actions.remove(Action.NORTH)
     if x + 1 > n or grid[x + 1, y] == 1:
@@ -122,6 +125,7 @@ def a_star(grid, h, start, goal):
                 if next_node not in visited:                
                     visited.add(next_node)               
                     branch[next_node] = (branch_cost, current_node, action)
+                    #print(queue_cost, current_node, next_node)
                     queue.put((queue_cost, next_node))
              
     if found:
