@@ -35,16 +35,6 @@ These scripts contain a basic planning implementation that includes...
 
 ---
 
-And here's a lovely image of my results (ok this image has nothing to do with it, but it's a nice example of how to include images in your writeup!)
-![Top Down View](./misc/high_up.png)
-
-Here's | A | Snappy | Table
---- | --- | --- | ---
-1 | `highlight` | **bold** | 7.41
-2 | a | b | c
-3 | *italic* | text | 403
-4 | 2 | 3 | abcd
-
 ### Implementing Your Path Planning Algorithm
 
 #### 1. Set your global home position
@@ -81,7 +71,13 @@ It works!
 
 ### Double check that you've met specifications for each of the [rubric](https://review.udacity.com/#!/rubrics/1534/view) points.
   
-# Extra Challenges: Real World Planning
+# Extra Challenges: Helix Plan
+
+```
+python motion_planning.py --helix HELIX
+```
+![Helix](./misc/helix.gif)
+
 
 For an extra challenge, consider implementing some of the techniques described in the "Real World Planning" lesson. You could try implementing a vehicle model to take dynamic constraints into account, or implement a replanning method to invoke if you get off course or encounter unexpected obstacles.
 
